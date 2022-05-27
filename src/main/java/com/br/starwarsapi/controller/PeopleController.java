@@ -1,7 +1,8 @@
 package com.br.starwarsapi.controller;
 
 import com.br.starwarsapi.client.ClientFeign;
-import com.br.starwarsapi.dto.PeopleDTO;
+import com.br.starwarsapi.model.People;
+import com.br.starwarsapi.model.Planets;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -15,16 +16,21 @@ import java.util.List;
 @RequestMapping("/")
 public class PeopleController {
 
-    private final ClientFeign clientFeign;
+    private  ClientFeign clientFeign;
 
     @GetMapping(value = "people/{id}")
-    public PeopleDTO getPeopleById(@PathVariable("id") Long id) {
+    public People getPeopleById(@PathVariable("id") Long id) {
         return clientFeign.getPeopleById(id);
     }
 
     @GetMapping(value = "people")
-    public List<PeopleDTO> getAllPeople() {
+    public List<People> getAllPeople() {
         return clientFeign.getAllPeople();
+    }
+
+    @GetMapping(value = "planets/{id}")
+    public Planets getPlanetsById(@PathVariable("id") Long id) {
+        return clientFeign.getPlanetsById(id);
     }
 
 
