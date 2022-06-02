@@ -3,8 +3,6 @@ package com.br.starwarsapi.model;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.*;
 
-import java.util.List;
-
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
@@ -28,7 +26,6 @@ public class Planets {
 
     @JsonProperty("surface_water")
     private String surfaceWater;
-
 
 
 }
